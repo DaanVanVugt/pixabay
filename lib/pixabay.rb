@@ -14,7 +14,7 @@ module Pixabay
 
   class Client
     include HTTParty
-    base_uri 'https://pixabay.com/api/'
+    base_uri 'https://pixabay.com/api'
 
     def initialize(key: nil, timeout: 10)
       @key = key
@@ -30,7 +30,7 @@ module Pixabay
       }
 
       options = { query: { key: @key }.merge(options) }
-      self.class.get('', options)
+      self.class.get('/', options)
     end
 
     def videos(**options)
